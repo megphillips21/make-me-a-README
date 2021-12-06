@@ -1,9 +1,54 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMD = require(`utils\generateMarkdown.js`);
+const generateMD = require('.\utils\generateMarkdown.js');
 // TODO: Create an array of questions for user input
 const questions = [
+    {
+        type: `input`,
+        message: `Project Title: `,
+        name: `Title`
+    },
+    {
+        type: `input`,
+        message:`Creator Name`,
+        name: `Creator`
+    },
+    {
+        type: `input`,
+        message: `Email Address: `,
+        name: `Email`
+    },
+    {
+        type: `input`,
+        message: `GitHub Username: `,
+        name: `Gituser`
+    },
+    {
+        type: `input`,
+        message: `Description: `,
+        name: `Description`
+    },
+    {
+        type: `input`,
+        message: `Installation steps: `,
+        name: `Install`
+    },
+    {
+        type: `input`,
+        message: `Usage: `,
+        name: `Usage`
+    },
+    {
+        type: `input`,
+        message: `Tests: `,
+        name: `Test`
+    },
+    {
+        type: `input`,
+        message: `Contributors: `,
+        name: `Contribute`
+    },
 
 ];
 
