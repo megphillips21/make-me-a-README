@@ -6,12 +6,22 @@ const generateMD = require('./utils/generateMarkdown.js');
 const questions = [
     {
         type: 'input',
-        message: 'Project Title: ',
-        name: 'Title'
+        message: 'Project Title: (required) ',
+        name: 'Title',
+        validate: titleInput => {
+            if (titleInput) {
+                return true;
+            }
+            else {
+                console.log('We know you project has a title... Try again');
+                return false;
+            }
+        }
+
     },
     {
         type: 'input',
-        message:'Creator Name',
+        message: 'Creator Name',
         name: 'Creator'
     },
     {
@@ -45,12 +55,27 @@ const questions = [
         name: 'Test'
     },
     {
+        type: 'confirm',
+        name: 'confirmContribute',
+        message: 'Are there any contributers you would like to credit?',
+        default: true
+    },
+    {
+
         type: 'input',
         message: 'Contributors: ',
-        name: 'Contribute'
+        name: 'Contribute',
+        when: ({ confirmContribute }) => {
+            if (confirmContribute) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     },
+]
 
-];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -66,8 +91,8 @@ function init() {
     inquirer.prompt(questions).then(answers => {
         // generateMD(answers);
         writeToFile('README.md', generateMD(answers));
-        });
-    }
+    });
+}
 
 
 // Function call to initialize app
