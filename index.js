@@ -22,7 +22,15 @@ const questions = [
     {
         type: 'input',
         message: 'Creator Name',
-        name: 'Creator'
+        name: 'Creator',
+        validate: creatorInput => {
+            if (creatorInput) {
+                return true;
+            }
+            else {
+                console.log('We know you project has a title... Try again');
+                return false;
+            }
     },
     {
         type: 'input',
@@ -53,6 +61,11 @@ const questions = [
         type: 'input',
         message: 'Tests: ',
         name: 'Test'
+    },
+    {
+        type: 'input',
+        message: 'Deployment Link',
+        name: 'Deployment'
     },
     {
         type: 'confirm',
