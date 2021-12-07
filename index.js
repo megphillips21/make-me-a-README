@@ -31,7 +31,7 @@ const questions = [
                 console.log('We know you project has a title... Try again');
                 return false;
             }
-    },
+    }},
     {
         type: 'input',
         message: 'Email Address: ',
